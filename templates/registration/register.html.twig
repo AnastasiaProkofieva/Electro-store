@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+{#    {% for flashError in app.flashes('verify_email_error') %}#}
+{#        <div class="alert alert-danger" role="alert">{{ flashError }}</div>#}
+{#    {% endfor %}#}
+
+{#    <h1>Register</h1>#}
+
+{#    {{ form_start(registrationForm) }}#}
+{#        {{ form_row(registrationForm.email) }}#}
+{#        {{ form_row(registrationForm.plainPassword, {#}
+{#            label: 'Password'#}
+{#        }) }}#}
+{#        {{ form_row(registrationForm.agreeTerms) }}#}
+
+{#        <button type="submit" class="btn">Register</button>#}
+{#    {{ form_end(registrationForm) }}#}
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register</h5>
+            </div>
+            <div class="modal-body">
+                {{ form_start(registrationForm, {'attr': {'class': ''}}) }}
+                    <div class="form-group">
+{#                        <label class="col-form-label">Email</label>#}
+                        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': ' ', 'required': ''}}) }}
+{#                        <input type="email" class="form-control" placeholder=" " name="Email" required="">#}
+                    </div>
+                    <div class="form-group">
+{#                        <label class="col-form-label">Password</label>#}
+                        {{ form_row(registrationForm.plainPassword,   {'label': 'Password','attr': {'class': 'form-control', 'placeholder': ' ', 'required': ''}}) }}
+{#                        <input type="password" class="form-control" placeholder=" " name="Password" id="password1" required="">#}
+                    </div>
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Register">
+                    </div>
+                    <div class="sub-w3l">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+{#                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing2">#}
+{#                            <label class="custom-control-label" for="customControlAutosizing2">I Accept to the Terms &amp; Conditions</label>#}
+                            {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'custom-control-label'}}) }}
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(registrationForm) }}
+{% endblock %}
